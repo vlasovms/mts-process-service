@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn2:definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:bpmn2="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:camunda="http://camunda.org/schema/1.0/bpmn" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" id="_ll67ABGYEeW7xqkBzIjHqw" targetNamespace="http://camunda.org/schema/1.0/bpmn" exporter="Camunda Modeler" exporterVersion="5.25.0" xsi:schemaLocation="http://www.omg.org/spec/BPMN/20100524/MODEL BPMN20.xsd">
+  <bpmn2:process id="vacation-process" name="vacation-process" isExecutable="true" camunda:historyTimeToLive="P180D">
+    <bpmn2:startEvent id="StartEvent_1">
+      <bpmn2:outgoing>Flow_021dgct</bpmn2:outgoing>
+    </bpmn2:startEvent>
+    <bpmn2:userTask id="Activity_1h9pj6v" name="Manager consider application" camunda:formRef="manager_form" camunda:formRefBinding="latest" camunda:assignee="admin" camunda:candidateUsers="admin" camunda:candidateGroups="admin">
+      <bpmn2:extensionElements>
+        <camunda:inputOutput>
+          <camunda:inputParameter name="startDate">#{startDate}</camunda:inputParameter>
+        </camunda:inputOutput>
+      </bpmn2:extensionElements>
+      <bpmn2:incoming>Flow_021dgct</bpmn2:incoming>
+      <bpmn2:outgoing>Flow_1w1cjj9</bpmn2:outgoing>
+    </bpmn2:userTask>
+    <bpmn2:sequenceFlow id="Flow_021dgct" sourceRef="StartEvent_1" targetRef="Activity_1h9pj6v" />
+    <bpmn2:endEvent id="Event_1i7lj1a">
+      <bpmn2:incoming>Flow_1w1cjj9</bpmn2:incoming>
+    </bpmn2:endEvent>
+    <bpmn2:sequenceFlow id="Flow_1w1cjj9" sourceRef="Activity_1h9pj6v" targetRef="Event_1i7lj1a" />
+  </bpmn2:process>
+  <bpmn2:message id="Message_1egkeme" name="InterMessage" />
+  <bpmn2:message id="Message_2kq52fe" name="SubProcessMsg" />
+  <bpmn2:error id="Error_1iqu1sp" name="Sub" errorCode="Sub" camunda:errorMessage="Just jumping to sub-process" />
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="vacation-process">
+      <bpmndi:BPMNShape id="_BPMNShape_StartEvent_3" bpmnElement="StartEvent_1">
+        <dc:Bounds x="155" y="107" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_1h9pj6v_di" bpmnElement="Activity_1h9pj6v">
+        <dc:Bounds x="250" y="85" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Event_1i7lj1a_di" bpmnElement="Event_1i7lj1a">
+        <dc:Bounds x="412" y="107" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="Flow_021dgct_di" bpmnElement="Flow_021dgct">
+        <di:waypoint x="191" y="125" />
+        <di:waypoint x="250" y="125" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1w1cjj9_di" bpmnElement="Flow_1w1cjj9">
+        <di:waypoint x="350" y="125" />
+        <di:waypoint x="412" y="125" />
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn2:definitions>

@@ -1,0 +1,42 @@
+spring.application.name: ProcessService
+server:
+  port: 8182
+spring:
+  datasource:
+    url: jdbc:h2:mem:testdb
+    driverClassName: org.h2.Driver
+    username: admin
+    password: admin
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+  kafka:
+    bootstrap-servers: localhost:9094
+    consumer:
+      group-id: "consumer-1"
+      auto-offset-reset: earliest
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: ru.mts.homework.Deserializer.ApplicationDeserializer
+      properties:
+        spring:
+          json:
+            trusted:
+              packages: '*'
+camunda:
+  bpm:
+    admin-user:
+      id: admin
+      password: admin
+    application:
+      delete-upon-undeploy: false
+      scan-for-process-definitions: true
+      deploy-changed-only: true
+      resume-previous-versions: true
+      resume-previous-by: a value
+    job-execution:
+      enabled: true
+    metrics:
+      enabled: false
+      db-reporter-activate: false
+
+
+camunda.bpm.auto-deployment-enabled: false

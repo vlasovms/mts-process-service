@@ -15,7 +15,16 @@ spring:
       group-id: "consumer-1"
       auto-offset-reset: earliest
       key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
-      value-deserializer: ru.mts.homework.Deserializer.ApplicationDeserializer
+      value-deserializer: ru.mts.homework.serializer.ApplicationDeserializer
+      properties:
+        spring:
+          json:
+            trusted:
+              packages: '*'
+    producer:
+      auto-offset-reset: earliest
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: ru.mts.homework.serializer.AppStatusSerializer
       properties:
         spring:
           json:

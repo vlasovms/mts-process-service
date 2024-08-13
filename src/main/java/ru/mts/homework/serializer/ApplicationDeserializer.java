@@ -1,4 +1,4 @@
-package ru.mts.homework.Deserializer;
+package ru.mts.homework.serializer;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.apache.kafka.common.serialization.Deserializer;

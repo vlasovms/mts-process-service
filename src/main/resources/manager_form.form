@@ -1,34 +1,53 @@
 {
   "components": [
     {
-      "label": "Date",
+      "label": "Дата начала отпуска",
       "type": "textfield",
       "layout": {
         "row": "Row_0y0g9q2",
         "columns": null
       },
       "id": "Field_17z9z8d",
-      "key": "startDate"
+      "key": "startDate",
+      "readonly": true
     },
     {
-      "action": "submit",
-      "label": "Submit",
-      "type": "button",
+      "values": [
+        {
+          "label": "Да",
+          "value": "Y"
+        },
+        {
+          "label": "Нет",
+          "value": "N"
+        }
+      ],
+      "label": "Утвердить отпуск?",
+      "type": "select",
       "layout": {
-        "row": "Row_1f9apl0",
-        "columns": 2
+        "row": "Row_0qz7xo1",
+        "columns": null
       },
-      "id": "Field_04h0tmm"
+      "id": "Field_1fvgpno",
+      "key": "vacDecision",
+      "defaultValue": "<none>",
+      "searchable": false,
+      "validate": {
+        "required": true
+      }
     },
     {
-      "action": "reset",
-      "label": "Reset",
-      "type": "button",
+      "label": "Комментарий",
+      "type": "textfield",
       "layout": {
-        "row": "Row_1f9apl0",
-        "columns": 2
+        "row": "Row_0117c6o",
+        "columns": null
       },
-      "id": "Field_0mn6kc7"
+      "id": "Field_0u47w1q",
+      "key": "comment",
+      "conditional": {
+        "hide": "=vacDecision = \"Y\""
+      }
     }
   ],
   "type": "default",

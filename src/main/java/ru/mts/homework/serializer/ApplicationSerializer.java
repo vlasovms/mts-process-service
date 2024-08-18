@@ -2,16 +2,16 @@ package ru.mts.homework.serializer;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.apache.kafka.common.serialization.Serializer;
-import ru.mts.homework.ApplicationStatus;
+import ru.mts.homework.dto.Application;
 
-public class AppStatusSerializer implements Serializer<ApplicationStatus> {
+public class ApplicationSerializer implements Serializer<Application> {
     @Override
-    public byte[] serialize(String arg0, ApplicationStatus applicationStatus) {
+    public byte[] serialize(String arg0, Application application) {
         byte[] retVal = null;
         ObjectMapper objectMapper = new ObjectMapper();
         objectMapper.findAndRegisterModules();
         try {
-            retVal = objectMapper.writeValueAsString(applicationStatus).getBytes();
+            retVal = objectMapper.writeValueAsString(application).getBytes();
         } catch (Exception e) {
             e.printStackTrace();
         }

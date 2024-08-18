@@ -1,15 +1,48 @@
 {
   "components": [
     {
+      "label": "Фамилия",
+      "type": "textfield",
+      "layout": {
+        "row": "Row_0qz7xo1",
+        "columns": null
+      },
+      "id": "Field_1sopkae",
+      "key": "secondName",
+      "readonly": true
+    },
+    {
+      "label": "Имя",
+      "type": "textfield",
+      "layout": {
+        "row": "Row_0qz7xo1",
+        "columns": null
+      },
+      "id": "Field_0r1j16t",
+      "key": "firstName",
+      "readonly": true
+    },
+    {
       "label": "Дата начала отпуска",
       "type": "textfield",
       "layout": {
-        "row": "Row_0y0g9q2",
+        "row": "Row_1qbuvxu",
         "columns": null
       },
       "id": "Field_17z9z8d",
       "key": "startDate",
       "readonly": true
+    },
+    {
+      "label": "Дата конца отпуска",
+      "type": "textfield",
+      "layout": {
+        "row": "Row_1qbuvxu",
+        "columns": null
+      },
+      "id": "Field_02pwmub",
+      "key": "endDate",
+      "disabled": true
     },
     {
       "values": [
@@ -25,11 +58,11 @@
       "label": "Утвердить отпуск?",
       "type": "select",
       "layout": {
-        "row": "Row_0qz7xo1",
+        "row": "Row_1icub4p",
         "columns": null
       },
       "id": "Field_1fvgpno",
-      "key": "vacDecision",
+      "key": "managerDecision",
       "defaultValue": "<none>",
       "searchable": false,
       "validate": {
@@ -40,13 +73,13 @@
       "label": "Комментарий",
       "type": "textfield",
       "layout": {
-        "row": "Row_0117c6o",
+        "row": "Row_0b8zita",
         "columns": null
       },
       "id": "Field_0u47w1q",
       "key": "comment",
       "conditional": {
-        "hide": "=vacDecision = \"Y\""
+        "hide": "=managerDecision = \"Y\""
       }
     }
   ],

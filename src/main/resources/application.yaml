@@ -24,7 +24,7 @@ spring:
     producer:
       auto-offset-reset: earliest
       key-serializer: org.apache.kafka.common.serialization.StringSerializer
-      value-serializer: ru.mts.homework.serializer.AppStatusSerializer
+      value-serializer: ru.mts.homework.serializer.ApplicationSerializer
       properties:
         spring:
           json:
